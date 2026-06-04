@@ -47,6 +47,11 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, classification_report
 import seaborn as sns
 
+import matplotlib.font_manager as fm
+font_path = "C:\Windows\Fonts\MALGUNSL.TTF"
+font_name = plt.matplotlib.font_manager.FontProperties(fname=font_path).get_name()
+
+plt.rcParams['font.family'] = font_name
 plt.rcParams['axes.unicode_minus'] = False
 
 # ──────────────────────────────────────────────────
@@ -248,7 +253,7 @@ er = range(1, EPOCHS + 1)
 
 # 7-1. 학습 곡선
 fig, axes = plt.subplots(1, 2, figsize=(13, 4))
-fig.suptitle('Food CNN Training Curves\n강우현 202404178', fontsize=12, fontweight='bold')
+fig.suptitle('Food CNN Training Curves', fontsize=12, fontweight='bold')
 
 axes[0].plot(er, train_losses, 'b-o', label='Train Loss', linewidth=2)
 axes[0].plot(er, test_losses,  'r-s', label='Test Loss',  linewidth=2)
